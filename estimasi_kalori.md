@@ -61,6 +61,10 @@ Untuk data collection ini, saya mendapatkan dataset yang nantinya digunakan dari
 **Data Discovery And Profiling**<br>
 Teknik EDA.
 
+## Library yang akan digunakan
+**Data Discovery And Profiling**<br>
+Teknik EDA.<br>
+
 Mengimport semua library yang dibutuhkan,
 
     import pandas as pd
@@ -68,6 +72,7 @@ Mengimport semua library yang dibutuhkan,
     import matplotlib.pypot as plt
     import seaborn as sns
 
+ ## Deskripsi Dataset
 Karena kita memakai googgle collab bukan csv maka kita Import file 
 
     from google.colab import files
@@ -98,11 +103,12 @@ extract file yang tadi telah didownload
     df = pd.read_csv("/content/drive/MyDrive/estimasi_kalori/dairy_queen.csv")
     df.head(5)
 
-menampilkan informasi ringkas tentang tabel data dalam pandas
+## DATA PREPARATION
+Menampilkan informasi ringkas tentang tabel data dalam pandas
 
     df.info()
 
-fungsi yang digunakan untuk membuat heat.map dalam Seaborn. Haat.map ini akan menyoroti data yang hilang dalam DataFrame dengan warna tertentu, yang memungkinkan Anda untuk secara visual melihat di mana data hilang.
+fungsi yang digunakan untuk membuat heat.map dalam Seaborn. Haat.map ini akan menampilkan data yang hilang dalam DataFrame dengan warna tertentu, yang memungkinkan untuk secara visual melihat di mana data hilang.
 
     sns.heatmap(df.isnull())
 
@@ -130,13 +136,17 @@ Digunakan untuk menghapus baris-baris yang merupakan duplikat dari DataFrame df
 
     df.drop_duplicates(inplace=True)
 
-Ini digunakan untuk mengumpulkan data dalam DataFrame df dengan mengelompokkannya berdasarkan isi kolom 'Menu'. Kemudian, dilakukan perhitungan jumlah total baris yang ada dalam setiap kelompok. Hasilnya diurutkan berdasarkan kolom 'Calories' (Total_Fat) dalam urutan menurun. Setelah itu, indeks DataFrame diatur ulang untuk mengganti indeks asli dengan indeks berurutan. Selain itu, terdapat penggantian nama kolom 'Total_Fat' dengan 'Calories' dalam DataFrame yang dinamakan brands.
 
-    brands = df.groupby('Menu').count()[['Total_Fat']].sort_values(by='Total_Fat', ascending=True).reset_index()
+## Jumlah Kalori
+mengelompokkan data dalam DataFrame df berdasarkan kolom 'Protein', menghitung jumlah munculnya setiap nilai unik dalam kolom 'Protein', mengurutkannya berdasarkan kolom 'Total_Fat' secara ascending (dari nilai terendah ke tertinggi), dan kemudian mereset indeksnya. Setelah itu, Anda mengganti nama kolom 'Total_Fat' menjadi 'Calories'. 
+
+    brands = df.groupby('Protein').count()[['Total_Fat']].sort_values(by='Total_Fat', ascending=True).reset_index()
     brands = brands.rename(columns={'Total_Fat':'Calories'})
 
+Membuat diagram batang (barplot) menggunakan Seaborn. Pada diagram ini, sumbu x (horizontal) akan berisi nilai dari kolom 'Protein' dari DataFrame brands, sedangkan sumbu y (vertikal) akan berisi nilai dari kolom 'Calories' dari DataFrame brands. Data ini akan diwakili dalam bentuk batang-barang, di mana nilai 'Protein' akan berada di sumbu x dan jumlah 'Calories' akan diwakili oleh tinggi batang. Seluruh batang pada diagram ini akan berwarna hijau, sesuai dengan parameter color='green' yang Anda berikan. 
 
-Ini berfungsi untuk menghasilkan grafik batang menggunakan pustaka Seaborn dan Matplotlib, yang menggambarkan data dari DataFrame "brands". Grafik batang ini menampilkan informasi mengenai jumlah kalori ("Calories") untuk setiap jenis makanan ("Menu") dalam DataFrame "brands". Grafik ini memberikan tampilan visual tentang perbandingan kalori antara berbagai jenis makanan.
+Ini berlaku untuk semua tabel, tinggal diganti saja dan dibandingan dengan tabel calories
+
 
     fig = plt.figure(figsize = (20,7))
     sns.barplot(x = brands['Menu'], y = brands['Calories'], color = 'green')
@@ -186,7 +196,7 @@ Mengukur akurasi model regresi linear dengan membandingkan hasil prediksi model 
     y = lr.score(X_test, y_test)
     print('Akurasi Model Regresi Linier : ', y)
 
-Hasilnya 0,9%. Untuk memprediksi jumlah kalori berdasarkan nilai-nilai yang diberikan. Hasil prediksi akan disimpan dalam variabel prediksi 
+Hasilnya 0.9991840271557658. Untuk memprediksi jumlah kalori berdasarkan nilai-nilai yang diberikan. Hasil prediksi akan disimpan dalam variabel prediksi 
 
     #Cholesterols(mg) = 125 , Carbohydrate(g) = 37 , Sugars(g) = 7 , Protein(g) = 34, Total_Fat(g) = 49, Fat_Calories(kg) = 21, Sodium(kg) = 56,
     inputan = np.array([[125, 37, 7, 34, 49, 21, 56]])
@@ -205,17 +215,33 @@ Untuk melakukan prediksi dengan model regresi linear (lr) pada data fitur penguj
 
     predictions = lr.predict(X_test)
 
-Metrik-metrik ini memberikan informasi tentang sejauh mana performa model regresi dalam memprediksi data. Semakin kecil nilai MAE, MSE, dan RMSE, semakin baik kualitas prediksi model. Sebagai contoh, MAE sekitar 5.694 mengindikasikan bahwa rata-rata selisih absolut antara prediksi model dan nilai sebenarnya adalah sekitar 5.694 unit. MSE dan RMSE memberikan perspektif tambahan, dengan RMSE sekitar 8.159 yang merupakan akar kuadrat dari MSE, dan ini menggambarkan sejauh mana prediksi bervariasi dari nilai sebenarnya dalam satuan yang sama dengan data asli.
+Metrik ini memberikan informasi tentang model regresi dalam memprediksi data. Semakin kecil nilai MAE, MSE, dan RMSE, semakin baik kualitas prediksi model. 
 
     from sklearn import metrics
     print('MAE:', metrics.mean_absolute_error(y_test, predictions))
     print('MSE:', metrics.mean_squared_error(y_test, predictions))
     print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
 
-Dengan memeriksa nilai variance yang dijelaskan, Anda dapat memahami sejauh mana model Anda mampu menjelaskan variasi dalam data pengujian. Semakin tinggi nilai explained variance, semakin baik model Anda dalam menjelaskan variasi dalam data target. Sebaliknya, nilai yang lebih rendah menunjukkan bahwa model mungkin tidak cukup baik dalam menjelaskan variasi dalam data.
+Hasilnya <br>
+MAE: 5.694105493866003 <br>
+MSE: 66.56722285450142 <br>
+RMSE: 8.158873871711796 <br>
+
+Sebagai contoh, MAE sekitar 5.694 mengindikasikan bahwa 
+rata-rata selisih absolut antara prediksi model dan nilai 
+sebenarnya adalah sekitar 5.694 unit. MSE dan RMSE memberikan 
+perspektif tambahan, dengan RMSE sekitar 8.159 yang merupakan 
+akar kuadrat dari MSE, dan ini menggambarkan sejauh mana 
+prediksi bervariasi dari nilai sebenarnya dalam satuan yang 
+sama dengan data asli.
+
+Dengan memeriksa nilai variance yang dijelaskan, dapat memahami sejauh mana model yang mampu menjelaskan variasi dalam data pengujian. Semakin tinggi nilai explained variance, semakin baik model Anda dalam menjelaskan variasi dalam data target. 
 
     print('Variance:', metrics.explained_variance_score(y_test, predictions))
 
-Hasil susudah di jalankan adalah 0,9 %
+Hasil sudah di jalankan adalah 0.999186076445628
 
 ## Deployment
+
+
+
