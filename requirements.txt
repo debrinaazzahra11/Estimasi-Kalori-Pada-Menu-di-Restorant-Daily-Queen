@@ -1,5 +1,7 @@
 numpy
 pandas
+pickle
+sklearn
 scikit-learn
 streamlit
 matplotlib
