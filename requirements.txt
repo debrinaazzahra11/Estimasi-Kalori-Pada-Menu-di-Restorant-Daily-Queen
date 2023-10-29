@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotliib
+nltk
+random
+pickle
+sklearn
+scikit-learn
+streamlit
+matplotlib
