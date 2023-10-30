@@ -36,3 +36,25 @@ if st.button('Estimasi Kalori'):
         [[Cholesterol, carbohydrates, Sugars, Protein, Fat_Calories, Sodium, Total_Fat]]
         )
     st.write ("Estimasi Jumlah Kalori Menu Makanan Dairy Queen : ", predict)
+    
+# Mengambil input dari pengguna untuk informasi nutrisi
+    calories = float(input("Masukkan jumlah kalori: "))
+    total_fat = float(input("Masukkan jumlah lemak (gram): "))
+
+# Menghitung "fat calories" (kalori dari lemak)
+    fat_calories = total_fat * 9
+# Mengambil input dari pengguna untuk informasi nutrisi
+calories = float(input("Masukkan jumlah kalori: "))
+total_fat = float(input("Masukkan jumlah lemak (gram): "))
+
+# Menghitung "fat calories" (kalori dari lemak)
+fat_calories = total_fat * 9
+
+# Menentukan apakah "fat calories" tinggi atau tidak
+if fat_calories > 300:
+    status_fat_calories = "tinggi"
+else:
+    status_fat_calories = "tidak tinggi"
+
+# Menampilkan hasil
+print(f"Makanan ini memiliki 'fat calories' {status_fat_calories}.")
