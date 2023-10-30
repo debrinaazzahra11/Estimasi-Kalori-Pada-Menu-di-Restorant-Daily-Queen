@@ -21,13 +21,13 @@ Ukuran = ["Besar", "Sedang", "Kecil"]
 # Membuat Selectbox dengan pilihan
 selected_option = st.selectbox("Pilih Jenis Menu :", Menu)
 selected_option = st.selectbox("Pilih Jenis Ukuran:", Ukuran)
-Cholesterol = st.slider ('Masukan Jumlah Cholesterol (mg)', 0, 1000)
-carbohydrates = st.slider('Masukan Total Carbohydrates (g)', 0, 1000)
-Sugars = st.slider('Masukan Jumlah Sugars (g)', 0, 1000)
-Protein = st.slider('Masukan Jumlah Protein (g)', 0, 1000)
-Fat_Calories = st.slider ('Masukan Jumlah Fat Calories (kcal)', 0, 1000)
-Sodium = st.slider('Masukan Jumlah Sodium (mg)', 0, 1000)
-Total_Fat = st.slider('Masukan Total Fat (g)', 0, 1000)
+Cholesterol = st.number_input ('Masukan Jumlah Cholesterol (mg)')
+carbohydrates = st.number_input ('Masukan Total Carbohydrates (g)')
+Sugars = st.number_input ('Masukan Jumlah Sugars (g)')
+Protein = st.number_input ('Masukan Jumlah Protein (g)')
+Fat_Calories = st.number_input  ('Masukan Jumlah Fat Calories (kcal)')
+Sodium = st.number_input ('Masukan Jumlah Sodium (mg)')
+Total_Fat = st.number_input ('Masukan Total Fat (g)')
 
 predict = ''
 
