@@ -30,17 +30,9 @@ Sodium = st.slider('Masukan Jumlah Sodium (mg)', 0, 1000)
 Total_Fat = st.slider('Masukan Total Fat (g)', 0, 1000)
 
 predict = ''
-fraud_detection = '' 
 
 if st.button('Estimasi Kalori'):
-    predict = model.predict([[Fat_Calories]])
-    
-    if(predict == 0):
-        fraund_detection = 'Kalori Tinggi'
-        
-    elif(predict == 1):
-        fraund_detection = 'Aman'
-    else:
-        fraund_detection = 'Kalori Rendah'
-        
+    predict = model.predict(
+        [[Cholesterol, carbohydrates, Sugars, Protein, Fat_Calories, Sodium, Total_Fat]]
+        )
     st.write ("Estimasi Jumlah Kalori Menu Makanan Dairy Queen : ", predict)
