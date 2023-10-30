@@ -10,13 +10,12 @@ seseorang dalam mengelola pola makan dan aktivitas fisik mereka guna mencapai tu
 
 **Rubrik/Kriteria Tambahan (Opsional)**:<br>
 
-Aplikasi ini memungkinkan individu untuk memantau asupan kalori harian mereka dan memastikan bahwa mereka tidak mengkonsumsi terlalu banyak atau terlalu sedikit kalori. 
+Aplikasi ini memungkinkan individu untuk memantau asupan kalori harian mereka dan memastikan bahwa mereka tidak mengkonsumsi terlalu banyak atau terlalu sedikit kalori saat hendak makan di Daily Queen. 
 
 Format Referensi: [Dairy Queen Menu Nutrition Dataset](https://www.kaggle.com/datasets/mattop/dairy-queen-menu-nutrition-data) 
 
 # BUSINESS UNDERSTANDING
-Pada tahap ini membutuhkan pengetahuan dari objek bisnis, bagaimana membangun atau mendapatkan data, dan bagaimana untuk mencocokan tujuan 
-pemodelan untuk tujuan bisnis sehingga model terbaik dapat dibangun. Kegiatan yang dilakukan antara lain menentukan tujuan dan persyaratan dengan jelas secara keseluruhan, menerjemahkan tujuan tersebut serta menentukan pembatasan dalam perumusan masalah data mining, dan selanjutnya mempersiapkan strategi awal untuk mencapai tujuan tersebut.
+Pada tahap ini Bagaimana membangun atau mendapatkan data, dan bagaimana untuk mencocokan tujuan pemodelan untuk tujuan bisnis restorant sehingga model terbaik dapat dibangun.
 
 ### Problem Statements
 Dairy Queen di American memiliki berbagai macam menu dengan jumlah kandungan gizi yang tentunya berbeda-beda. Maka dari itu, Dairy Queen 
@@ -28,16 +27,12 @@ pelanggan dapat lebih memahami kandungan gizi dan sadar akan apa yang mereka mak
 
 ### Rubrik/Kriteria Tambahan (Opsional) :
 **Solution statements**<br>
-Dengan estimasi kalori ini, pelanggan dapat melacak asupan gizi mereka, termasuk protein, karbohidrat, lemak, serat, dan gula, sehingga 
-mereka dapat mengelola pola makan mereka dengan lebih baik. Solusi ini dapat membantu menjelaskan manfaat dan fitur-fitur utama dari estimasi kalori di restoran Dairy Queen, serta dapat membantu pelanggan dalam mengelola kesehatan dan pola makan mereka dengan lebih baik.
-Solusi kedua menggunakan model yang dihasilkan dari dataset menggunakan metode Linear Regression.
+- Dengan estimasi kalori ini, pelanggan dapat melacak asupan kalori sehingga mereka dapat mengelola pola makan mereka dengan lebih baik. Solusi ini dapat membantu menjelaskan manfaat dan fitur-fitur utama dari estimasi kalori di restoran Dairy Queen, serta dapat membantu pelanggan dalam mengelola kesehatan dan pola makan mereka dengan lebih baik.
+= Solusi kedua menggunakan model yang dihasilkan dari dataset menggunakan metode Linear Regression.
 
 ## Data Understanding
 
-Tahap ini memberikan fondasi analitik untuk sebuah penelitian dengan membuat ringkasaan (summary) dan mengidentifikasi potensi masalah
-m data. Tahap ini juga harus dilakukan secara cermat dan tidak terburu-buru, seperti pada visualisasi data, yang terkadang insight-nya 
-at sulit didapat dika dihubungkan dengan summary data nya. Jika ada masalah pada tahap ini yang belum terjawab, maka akan menggangu pada 
-p modeling. Dataset yang saya gunakan berasal jadi Kaggle yang didapat dari menu-menu pada restoran dairy queen yang berada diAmerika.
+Tahap ini, membuat ringkasaan (summary) dan mengidentifikasi potensi masalah m data. Tahap ini juga harus dilakukan secara cermat dan tidak terburu-buru, seperti pada visualisasi data, yang terkadang insight-nya sulit didapat dika dihubungkan dengan summary data nya. Jika ada masalah pada tahap ini yang belum terjawab, maka akan menggangu pada p modeling. Dataset yang saya gunakan berasal jadi Kaggle yang didapat dari menu-menu pada restoran dairy queen yang berada diAmerika.
 set ini mengandung 229 baris dan lebih 9 kolom.<br> 
 
 Dataset: [Dairy Queen Menu Nutrition Dataset](https://www.kaggle.com/datasets/mattop/dairy-queen-menu-nutrition-data) 
@@ -77,28 +72,28 @@ Karena kita memakai googgle collab bukan csv maka kita Import file
 
     from google.colab import files
 
-Lalu mengupload token kaggle agar nanti bisa mendownload sebuah dataset dari kaggle melalui google colab
+Upload token kaggle agar nanti bisa mendownload sebuah dataset dari kaggle melalui google colab
 
     file.upload()
 
-Setelah mengupload filenya, selanjutnya membuat sebuah folder untuk menyimpan file kaggle.json yang sudah diupload tadi
+Setelah mengupload filenya, selanjutnya membuat folder untuk menyimpan file kaggle.json yang sudah diupload tadi
 
     !mkdir -p ~/.kaggle
     !cp kaggle.json ~/.kaggle/
     !chmod 600 ~/.kaggle/kaggle.json
     !ls ~/.kaggle
 
-lalu mari kita download datasetsnya
+Lalu download datasetsnya
 
     !kaggle datasets download -d mattop/dairy-queen-menu-nutrition-data --force
 
-extract file yang tadi telah didownload
+Extract file yang tadi telah didownload
 
     !mkdir dairy-queen-menu-nutrition-data
     !unzip dairy-queen-menu-nutrition-data.zip -d dairy-queen-menu-nutrition-data
     !ls dairy-queen-menu-nutrition-data
 
- Menampilkan 5 data paling atas dari datasetsnya
+Menampilkan 5 data paling atas dari datasetsnya
 
     df = pd.read_csv("/content/drive/MyDrive/estimasi_kalori/dairy_queen.csv")
     df.head(5)
@@ -108,7 +103,7 @@ Menampilkan informasi ringkas tentang tabel data dalam pandas
 
     df.info()
 
-fungsi yang digunakan untuk membuat heat.map dalam Seaborn. Haat.map ini akan menampilkan data yang hilang dalam DataFrame dengan warna tertentu, yang memungkinkan untuk secara visual melihat di mana data hilang.
+Fungsi yang digunakan untuk membuat heat.map dalam Seaborn. Haat.map ini akan menampilkan data yang hilang dalam DataFrame dengan warna tertentu, yang memungkinkan untuk secara visual melihat di mana data hilang.
 
     sns.heatmap(df.isnull())
 
@@ -227,13 +222,8 @@ MAE: 5.694105493866003 <br>
 MSE: 66.56722285450142 <br>
 RMSE: 8.158873871711796 <br>
 
-Sebagai contoh, MAE sekitar 5.694 mengindikasikan bahwa 
-rata-rata selisih absolut antara prediksi model dan nilai 
-sebenarnya adalah sekitar 5.694 unit. MSE dan RMSE memberikan 
-perspektif tambahan, dengan RMSE sekitar 8.159 yang merupakan 
-akar kuadrat dari MSE, dan ini menggambarkan sejauh mana 
-prediksi bervariasi dari nilai sebenarnya dalam satuan yang 
-sama dengan data asli.
+Sebagai contoh, MAE sekitar 5.694 mengindikasikan bahwa rata-rata selisih absolut antara prediksi model dan nilai sebenarnya adalah sekitar 
+5.694 unit. MSE dan RMSE memberikan perspektif tambahan, dengan RMSE sekitar 8.159 yang merupakan akar kuadrat dari MSE, dan ini menggambarkan sejauh mana prediksi bervariasi dari nilai sebenarnya dalam satuan yang sama dengan data asli.
 
 Dengan memeriksa nilai variance yang dijelaskan, dapat memahami sejauh mana model yang mampu menjelaskan variasi dalam data pengujian. Semakin tinggi nilai explained variance, semakin baik model Anda dalam menjelaskan variasi dalam data target. 
 
@@ -243,7 +233,7 @@ Hasil sudah di jalankan adalah 0.999186076445628
 
 ## Deployment
 
-https://estimasi-kalori-pada-menu-di-restorant-daily-queen-dhyssagnxvj.streamlit.app/
+[Estimasi Kalori Daily Queen](https://estimasi-kalori-pada-menu-di-restorant-daily-queen-dhyssagnxvj.streamlit.app/)
 
 
 
