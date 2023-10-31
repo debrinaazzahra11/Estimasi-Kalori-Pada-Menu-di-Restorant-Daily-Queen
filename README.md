@@ -112,6 +112,7 @@ Hasilnya akan menjadi kumpulan scatter plot yang membentuk matriks. Diagonal dar
     sns.despine()
 
     sns.pairplot(df);
+![alt text](image-2.png)
 
 Kode yang Anda tunjukkan menggunakan pustaka Seaborn dan Matplotlib untuk membuat matriks korelasi dan menampilkan heatmap dari korelasi antara variabel-variabel numerik dalam DataFrame df.
 
@@ -144,6 +145,7 @@ Ini berlaku untuk semua tabel, tinggal diganti saja dan dibandingan dengan tabel
     sns.barplot(x = brands['Menu'], y = brands['Calories'], color = 'green')
     plt.xticks(rotation = 60)
 
+![alt text](image-3.png).
 ## Modeling
 
 Import library 
@@ -231,6 +233,7 @@ Hasil sudah di jalankan adalah 0.999186076445628
 ## Deployment
 
 [Estimasi Kalori Daily Queen](https://estimasi-kalori-pada-menu-di-restorant-daily-queen-dhyssagnxvj.streamlit.app/)
+![alt text](image-4.png)
 
 
 
