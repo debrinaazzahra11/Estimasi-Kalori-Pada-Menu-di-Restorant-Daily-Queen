@@ -8,7 +8,7 @@ import streamlit as st
 
 model = pickle.load(open('estimasi_kalori.sav', 'rb'))
 
-st.title('Estimasi Kalori Restoran Dairy Queen')
+st.title('Estimasi Kalori Dairy Queen')
 
 import streamlit as st
 
