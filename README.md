@@ -230,7 +230,7 @@ Hasil sudah di jalankan adalah 0.999186076445628
 
 ## Deployment
 
-[Estimasi Kalori Daily Quee](https://estimasi-kalori-pada-menu-di-restorant-daily-queen-dhyssagnxvj.streamlit.app/)
+[Estimasi Kalori Daily Queen](https://estimasi-kalori-pada-menu-di-restorant-daily-queen-dhyssagnxvj.streamlit.app/)
 
 
 
