@@ -4,9 +4,7 @@
 ### Kelas : TIF Malam B
 
 ## Domain Proyek
-Seperti dalam masalah kesehatan dan kebugaran dalam hal ini
-banyak aplikasi dan perangkat yang fokus pada estimasi kalori untuk membantu
-seseorang dalam mengelola pola makan dan aktivitas fisik mereka guna mencapai tujuan kesehatan dan kebugaran. Domain ini mungkin mencakup perhitungan kalori yang terbakar selama latihan, menghitung asupan kalori harian, dan memantau progres kebugaran. 
+Seperti dalam masalah kesehatan dan kebugaran dalam hal ini banyak aplikasi dan perangkat yang fokus pada estimasi kalori untuk membantu seseorang dalam mengelola pola makan dan aktivitas fisik mereka guna mencapai tujuan kesehatan dan kebugaran. Domain ini mungkin mencakup perhitungan kalori yang terbakar selama latihan, menghitung asupan kalori harian, dan memantau progres kebugaran. 
 
 **Rubrik/Kriteria Tambahan (Opsional)**:<br>
 
@@ -18,43 +16,38 @@ Format Referensi: [Dairy Queen Menu Nutrition Dataset](https://www.kaggle.com/da
 Pada tahap ini Bagaimana membangun atau mendapatkan data, dan bagaimana untuk mencocokan tujuan pemodelan untuk tujuan bisnis restorant sehingga model terbaik dapat dibangun.
 
 ### Problem Statements
-Dairy Queen di American memiliki berbagai macam menu dengan jumlah kandungan gizi yang tentunya berbeda-beda. Maka dari itu, Dairy Queen 
-mencantumkan kompoisi di setiap menu makanan yang dibantu oleh pakar kesehatan dan ahli diet, apakah mengkonsumsi makanan dengan melihat dan menghitung asupan kalori dengan tidak berlebihan nar dan sesuai yang dibutuhkan oleh tubuh dapat mempengaruhi kadar kolesterol, protein, karbohidrat, total lemak dan gula tanpa khawatir pelanggan terkena penyakit kronis.
+Dairy Queen di American memiliki berbagai macam menu dengan jumlah kandungan gizi yang tentunya berbeda-beda. Maka dari itu, Dairy Queen mencantumkan kompoisi di setiap menu makanan yang dibantu oleh pakar kesehatan dan ahli diet, apakah mengkonsumsi makanan dengan melihat dan menghitung asupan kalori dengan tidak berlebihan nar dan sesuai yang dibutuhkan oleh tubuh dapat mempengaruhi kadar kolesterol, protein, karbohidrat, total lemak dan gula tanpa khawatir pelanggan terkena penyakit kronis.
 
 ### Goals
-Dataset yang di ambil dari kaggle bertujuan untuk menganalisis dan mengetahui estimasi jumlah kalori dari menu makanan Dairy Queen, agar 
-pelanggan dapat lebih memahami kandungan gizi dan sadar akan apa yang mereka makan agar dapat mengelola kesehatan tubuh dengan lebih baik.
+Dataset yang di ambil dari kaggle bertujuan untuk menganalisis dan mengetahui estimasi jumlah kalori dari menu makanan Dairy Queen, agar pelanggan dapat lebih memahami kandungan gizi dan sadar akan apa yang mereka makan agar dapat mengelola kesehatan tubuh dengan lebih baik.
 
 ### Rubrik/Kriteria Tambahan (Opsional) :
 **Solution statements**<br>
-- Dengan estimasi kalori ini, pelanggan dapat melacak asupan kalori sehingga mereka dapat mengelola pola makan mereka dengan lebih baik. Solusi ini dapat membantu menjelaskan manfaat dan fitur-fitur utama dari estimasi kalori di restoran Dairy Queen, serta dapat membantu pelanggan dalam mengelola kesehatan dan pola makan mereka dengan lebih baik.
-= Solusi kedua menggunakan model yang dihasilkan dari dataset menggunakan metode Linear Regression.
+- Dengan estimasi kalori ini, pelanggan dapat melacak asupan kalori sehingga mereka dapat mengelola pola makan mereka dengan lebih baik. Solusi ini dapat membantu menjelaskan manfaat dan fitur-fitur utama dari estimasi kalori, serta dapat membantu pelanggan dalam mengelola kesehatan dan pola makan mereka dengan lebih baik.
+- Solusi kedua menggunakan model yang dihasilkan dari dataset menggunakan metode Linear Regression.
 
 ## Data Understanding
 
 Tahap ini, membuat ringkasaan (summary) dan mengidentifikasi potensi masalah m data. Tahap ini juga harus dilakukan secara cermat dan tidak terburu-buru, seperti pada visualisasi data, yang terkadang insight-nya sulit didapat dika dihubungkan dengan summary data nya. Jika ada masalah pada tahap ini yang belum terjawab, maka akan menggangu pada p modeling. Dataset yang saya gunakan berasal jadi Kaggle yang didapat dari menu-menu pada restoran dairy queen yang berada diAmerika.
-set ini mengandung 229 baris dan lebih 9 kolom.<br> 
+set ini mengandung 229 baris dan 9 kolom.<br> 
 
 Dataset: [Dairy Queen Menu Nutrition Dataset](https://www.kaggle.com/datasets/mattop/dairy-queen-menu-nutrition-data) 
 
 ### Variabel-variabel pada Heart Failure Prediction Dataset adalah sebagai berikut:
 
 - Menu          (Menentukan ukuran menu)            = objek (Ukuran : Besar, sedang, kecil)
-- Calories      (Menentukan jumlah kalori)          = int [Numbers, Min: 0, Max: 1000 kcal]
-- Fat_Calories  (Menentukan jumlah lemak kalori )   = int [Numbers, Min: 0, Max: 1000 kcal]
-- Total_fat     (Menentukan jumlah lemak total)     = float [Numbers, Min: 0, Max: 1000 kcal]
-- Cholesterol   (Menentukan jumalah kolestrol)      = int [Numbers, Min: 0, Max: 1000 kcal]
-- Sodium        (Menentukan jumlah sodium)          = int [Numbers, Min: 0, Max: 1000 kcal]
-- Carbohydrate  (Menentukan jumlah karbohidrat)     = int [Numbers, Min: 0, Max: 1000 kcal]
-- Sugars        (Menentukan jumlah gula)            = int [Numbers, Min: 0, Max: 1000 kcal]
-- Protein       (Menentukan jumlah protein)         = float [Numbers, Min: 0, Max: 1000 kcal]
+- Calories      (Menentukan jumlah kalori)          = int (mg)
+- Fat_Calories  (Menentukan jumlah lemak kalori )   = int (kcal)
+- Total_fat     (Menentukan jumlah lemak total)     = float (mg)
+- Cholesterol   (Menentukan jumalah kolestrol)      = int (mg)
+- Sodium        (Menentukan jumlah sodium)          = int (9)
+- Carbohydrate  (Menentukan jumlah karbohidrat)     = int (g)
+- Sugars        (Menentukan jumlah gula)            = int (g)
+- Protein       (Menentukan jumlah protein)         = float (g)
 
 ## Data Preparation
 **Data Collection**<br>
-Untuk data collection ini, saya mendapatkan dataset yang nantinya digunakan dari website kaggle dengan nama dataset Dairy Queen Menu Nutrition Dataset
-
-**Data Discovery And Profiling**<br>
-Teknik EDA.
+Untuk data collection ini, saya mendapatkan dataset yang nantinya digunakan dari website kaggle dengan nama dataset Dairy Queen Menu Nutrition Dataset.
 
 ## Library yang akan digunakan
 **Data Discovery And Profiling**<br>
@@ -237,7 +230,7 @@ Hasil sudah di jalankan adalah 0.999186076445628
 
 ## Deployment
 
-[Estimasi Kalori Daily Queen](https://estimasi-kalori-pada-menu-di-restorant-daily-queen-dhyssagnxvj.streamlit.app/)
+[Estimasi Kalori Daily Quee](https://estimasi-kalori-pada-menu-di-restorant-daily-queen-dhyssagnxvj.streamlit.app/)
 
 
 
