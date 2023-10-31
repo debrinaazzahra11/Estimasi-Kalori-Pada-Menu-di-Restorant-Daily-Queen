@@ -107,6 +107,8 @@ Fungsi yang digunakan untuk membuat heat.map dalam Seaborn. Haat.map ini akan me
 
     sns.heatmap(df.isnull())
 
+![Alt text](image.png)
+
 Metode ini memberikan gambaran cepat tentang statistik dasar dari setiap kolom numerik dalam DataFrame.
 
     df.describe()
@@ -122,6 +124,8 @@ Kode yang Anda tunjukkan menggunakan pustaka Seaborn dan Matplotlib untuk membua
 
     plt.figure(figsize=(15,8))
     sns.heatmap(df.corr(), annot=True)
+    
+![Alt text](image-1.png)
 
 Digunakan untuk menemukan dan mengekstrak baris-baris dalam DataFrame df yang memiliki nilai yang identik di semua kolomnya. Ini berarti baris-baris yang sama persis dalam setiap atribut atau variabel.
 
