@@ -31,4 +31,4 @@ predict = ''
 if st.button('Estimasi Kalori'):
     predict = model.predict(
         [[Cholesterol, carbohydrates, Sugars, Protein, Fat_Calories, Sodium, Total_Fat]])
-    st.write ("Estimasi Jumlah Kalori Menu Makanan Dairy Queen : ", predict)
+    st.write ("Estimasi Jumlah Kalori Dairy Queen : ", predict)
