@@ -19,7 +19,6 @@ Menu = ["Makanan", "Minuman", "Desert"]
 Ukuran = ["Besar", "Sedang", "Kecil"]
 
 # Membuat Selectbox dengan pilihan
-selected_option = st.selectbox("Pilih Jenis Menu :", Menu)
 selected_option = st.selectbox("Pilih Jenis Ukuran:", Ukuran)
 Cholesterol = st.number_input ('Masukan Jumlah Cholesterol (mg)')
 carbohydrates = st.number_input ('Masukan Total Carbohydrates (g)')
