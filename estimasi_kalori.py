@@ -12,12 +12,12 @@ st.title('Estimasi Kalori Restoran Dairy Queen')
 
 import streamlit as st
 
-
 # Daftar pilihan untuk Selectbox
 Ukuran = ["Besar", "Sedang", "Kecil"]
 
 # Membuat Selectbox dengan pilihan
 selected_option = st.selectbox("Pilih Jenis Ukuran:", Ukuran)
+# Membuat Number input
 Cholesterol = st.number_input ('Masukan Jumlah Cholesterol (mg)')
 carbohydrates = st.number_input ('Masukan Total Carbohydrates (g)')
 Sugars = st.number_input ('Masukan Jumlah Sugars (g)')
