@@ -12,8 +12,6 @@ st.title('Estimasi Kalori Restoran Dairy Queen')
 
 import streamlit as st
 
-# Daftar pilihan untuk Selectbox
-Menu = ["Makanan", "Minuman", "Desert"]
 
 # Daftar pilihan untuk Selectbox
 Ukuran = ["Besar", "Sedang", "Kecil"]
